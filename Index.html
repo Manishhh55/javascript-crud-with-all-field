@@ -1,0 +1,130 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="Description" content="Enter your description here" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.1.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+  </head>
+  <link rel="stylesheet" href="Style.css">
+  <body>
+
+    <style>
+        #imageContainer img{
+            width: 150px;
+            height: 150px;
+        }
+    </style>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="alert alert-secondary text-center">
+                    CRUD Operation
+                </h1>
+            </div>
+            <div class="col-lg-4">
+                <div class="card">
+                    <div class="card-body">
+                        <form id="form">    
+                            <input type="hidden" name="id" id="id"> 
+                            <label for="">Name</label>
+                            <input type="text" placeholder="Name" class="form-control" name="name" id="name">
+                            <span class="span-error text-danger" id="name-error"></span>
+                            <br>
+                            <label for="">Age</label>
+                            <input type="number" placeholder="Age" class="form-control" name="age" id="age">
+                            <span class="span-error text-danger" id="age-error"></span>
+                            <br>
+                            <label for="">Email</label>
+                            <input type="email" placeholder="Email" class="form-control" name="email" id="email">
+                            <span class="span-error text-danger" id="email-error"></span>
+                            <br>
+                             <h5>Gender</h5> 
+                              <div>
+                                  <input type="radio" name="gender" value="male" id="m">
+                                  <label for="m">Male</label>
+                              </div>
+                              <div>
+                                  <input type="radio" name="gender" value="female" id="f">
+                                  <label for="f">Female</label>
+                              </div>
+                              <div>
+                                  <input type="radio" name="gender" value="other" id="o">
+                                  <label for="o">Other</label>
+                              </div>
+                              <span class="span-error text-danger" id="gender-error"></span> 
+                            <br>    
+                            <br>
+                            <label for="">Address</label>
+                            <textarea name="address" placeholder="Address" id="address" cols="30" rows="5" class="form-control"></textarea>
+                            <span class="span-error text-danger" id="address-error"></span>
+                            <br>
+                            <label for="">Phone</label>
+                            <input type="text" placeholder="Phone" class="form-control" id="phone" name="phone">
+                            <span class="span-error text-danger" id="phone-error"></span>
+                            <br>
+                            <h5>Favourite Language </h5>
+                            <td> React: <input type="checkbox" id="check1" name="language" class="checkbox" value="React"> </td><br>
+                            <td> Python: <input type="checkbox" id="check2" name="language" class="checkbox" value="Python"> </td><br>
+                            <td> C#: <input type="checkbox" id="check3" name="language" class="checkbox" value="C#"> </td><br>
+                            <td> NodeJs: <input type="checkbox" id="check4" name="language" class="checkbox" value="NodeJs"> </td><br>
+                            <td> .Net: <input type="checkbox" id="check5" name="language" class="checkbox" value=".Net"> </td>
+                            <span class="span-error text-danger" id="language-error"></span>
+                               <br>
+                               <br>
+                            <label for="">Photo</label>
+                            <input onchange="imageUpload(this)" type="file" placeholder="photo" class="form-control">
+                            <input type="hidden" name="photo" id="photo">
+                            <span class="span-error text-danger" id="photo-error"></span>
+                            <br>
+                            <div id="imageContainer">
+
+                            </div>
+                            <button class="btn btn-sm btn-primary" type="submit" onclick="return save()">Save</button>
+                            <button class="btn btn-sm btn-primary" type="button" onclick="reset()">Reset</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-18">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table id="datatable" class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Name</th>
+                                        <th>Age</th>
+                                        <th>Email</th>
+                                        <th>Gender</th>
+                                        <th>Address</th>
+                                        <th>Phone</th>
+                                        <th>Language</th>
+                                        <th>Photo</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="table">
+        
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+   <script src="Script.js"></script>
+  </body>
+</html>
